@@ -1,0 +1,64 @@
+{% extends 'home/index.html' %}
+{% block content %}
+
+<div class="container-fluid">
+
+<div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Class</th>
+                  <th>Attendance</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for students in students %}
+              {% ifequal students.Men_name|stringformat:"s" user.username %}
+                <tr>
+                  <td>{{ students.Student_name }}</td>
+                  <td>{{ students.Student_Class }}</td>
+                  <td>
+                        <label class="switch">
+                        <input id="toggle-slider_position()" type="checkbox">
+                        <span class="slider round"></span>
+                        </label>
+                  </td>
+                </tr>
+                {% endifequal %}
+              {% endfor %}
+              </tbody>
+
+            </table>
+
+
+
+          </div>
+            <br/>
+            <div class="row" >
+                <div class="col-sm-4"></div>
+                             <div class='col-sm-4' align="center">
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                 <button class="btn btn-lg">Submit</button>
+                            </div>
+                             <div class="col-sm-4">
+
+
+                                 </div>
+                        </div>
+            <br/><br/><br/><br/><br/>
+        </div>
+
+      </div>
+</div>
+{% endblock %}
